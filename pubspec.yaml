@@ -1,0 +1,24 @@
+name: flash_cards
+description: FlashCards app
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  colornames: ^0.2.0
+  cupertino_icons: ^1.0.6
+  flutter:
+    sdk: flutter
+  path_provider: ^2.1.3
+  states_rebuilder: ^6.4.0
+  uuid: ^4.4.0
+  package_info_plus: ^8.0.0
+  flutter_native_splash: ^2.4.1
+  manager:
+    path: ..//manager
+  forui: ^0.9.0
+  permission_handler: ^11.3.1
+flutter:
+  uses-material-design: true
