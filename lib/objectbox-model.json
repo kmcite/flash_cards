@@ -1,0 +1,117 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:84850359796269996",
+      "lastPropertyId": "6:1400810461537101369",
+      "name": "Question",
+      "properties": [
+        {
+          "id": "1:6208944414517923868",
+          "name": "id",
+          "type": 6,
+          "flags": 129
+        },
+        {
+          "id": "2:1454927117304954280",
+          "name": "title",
+          "type": 9
+        },
+        {
+          "id": "3:9217452805600646609",
+          "name": "a",
+          "type": 9
+        },
+        {
+          "id": "4:1401095920264407523",
+          "name": "b",
+          "type": 9
+        },
+        {
+          "id": "5:3823985856034711523",
+          "name": "c",
+          "type": 9
+        },
+        {
+          "id": "6:1400810461537101369",
+          "name": "d",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:3646660773479372676",
+      "lastPropertyId": "2:6023593771146563861",
+      "name": "FlashGroup",
+      "properties": [
+        {
+          "id": "1:4089420850889145394",
+          "name": "id",
+          "type": 6,
+          "flags": 129
+        },
+        {
+          "id": "2:6023593771146563861",
+          "name": "name",
+          "type": 9
+        }
+      ],
+      "relations": [
+        {
+          "id": "2:3483428282455946494",
+          "name": "flashCards",
+          "targetId": "3:2749995367322559766"
+        }
+      ]
+    },
+    {
+      "id": "3:2749995367322559766",
+      "lastPropertyId": "4:2466623829881858509",
+      "name": "FlashCard",
+      "properties": [
+        {
+          "id": "1:1902443553055411551",
+          "name": "id",
+          "type": 6,
+          "flags": 129
+        },
+        {
+          "id": "2:4803080330660303882",
+          "name": "explaination",
+          "type": 9
+        },
+        {
+          "id": "3:5263020941117972455",
+          "name": "question",
+          "type": 9
+        },
+        {
+          "id": "4:2466623829881858509",
+          "name": "answer",
+          "type": 9
+        }
+      ],
+      "relations": [
+        {
+          "id": "1:8368864071820430498",
+          "name": "flashGroups",
+          "targetId": "2:3646660773479372676"
+        }
+      ]
+    }
+  ],
+  "lastEntityId": "3:2749995367322559766",
+  "lastIndexId": "0:0",
+  "lastRelationId": "2:3483428282455946494",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}
