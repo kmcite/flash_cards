@@ -6,7 +6,7 @@ class DashboardPage extends UI {
   @override
   Widget build(BuildContext context) {
     return FScaffold(
-      content: DashboardParts.values.map(
+      child: DashboardParts.values.map(
         (part) {
           return part.page;
         },
@@ -19,7 +19,7 @@ class DashboardPage extends UI {
         children: DashboardParts.values.map(
           (part) {
             return FBottomNavigationBarItem(
-              icon: FIcon(part.icon),
+              icon: Icon(part.icon),
               label: part.description.text(),
             );
           },
@@ -39,11 +39,11 @@ int dashboardIndex([int? destination]) {
 enum DashboardParts { flashCards, studyTimer, stats, settings }
 
 extension Utils on DashboardParts {
-  SvgAsset get icon => switch (this) {
-        DashboardParts.flashCards => FAssets.icons.idCard,
-        DashboardParts.studyTimer => FAssets.icons.timer,
-        DashboardParts.stats => FAssets.icons.info,
-        DashboardParts.settings => FAssets.icons.settings,
+  IconData get icon => switch (this) {
+        DashboardParts.flashCards => FIcons.idCard,
+        DashboardParts.studyTimer => FIcons.timer,
+        DashboardParts.stats => FIcons.info,
+        DashboardParts.settings => FIcons.settings,
       };
   String get description => switch (this) {
         DashboardParts.flashCards => 'cards',

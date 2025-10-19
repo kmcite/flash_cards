@@ -2,12 +2,10 @@ import 'package:forui/forui.dart';
 
 import '../../main.dart';
 
-mixin class SettingsBloc {
-  ThemeMode get themeMode => settingsRepository.state.themeMode;
+mixin SettingsBloc on UI {
+  ThemeMode get themeMode => settingsRepository.themeMode;
   void putThemeMode(ThemeMode themeMode) {
-    settingsRepository
-      ..state = (settingsRepository.state..themeMode = themeMode)
-      ..notify();
+    settingsRepository.put(themeMode);
   }
 }
 
@@ -20,7 +18,7 @@ class SettingsPage extends UI with SettingsBloc {
       header: FHeader(
         title: 'Settings'.text(),
       ),
-      content: Column(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           FTileGroup(
@@ -30,8 +28,7 @@ class SettingsPage extends UI with SettingsBloc {
             ].map(
               (eachMode) {
                 return FTile(
-                  suffixIcon:
-                      eachMode == themeMode ? FIcon(FAssets.icons.check) : null,
+                  suffix: eachMode == themeMode ? Icon(FIcons.check) : null,
                   title: eachMode.name.toUpperCase().text(),
                   enabled: eachMode != themeMode,
                   onPress: () => putThemeMode(eachMode),

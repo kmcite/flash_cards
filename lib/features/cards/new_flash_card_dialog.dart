@@ -51,13 +51,13 @@ class NewFlashCardDialog extends UI with NewFlashCardBloc {
       direction: Axis.horizontal,
       actions: [
         FButton.icon(
-          style: FButtonStyle.destructive,
-          child: FIcon(FAssets.icons.saveOff),
+          style: FButtonStyle.destructive(),
+          child: Icon(FIcons.saveOff),
           onPress: cancel,
         ),
         FButton.icon(
-          style: FButtonStyle.primary,
-          child: FIcon(FAssets.icons.save),
+          style: FButtonStyle.primary(),
+          child: Icon(FIcons.save),
           onPress: success,
         ),
       ],
@@ -79,21 +79,21 @@ class NewFlashCardDialog extends UI with NewFlashCardBloc {
           ),
           FTextField(
             label: 'Question'.text(),
-            initialValue: flashCard().question,
+            initialText: flashCard().question,
             minLines: 2,
             maxLines: 3,
             onChange: question,
           ),
           FTextField(
             label: 'Answer'.text(),
-            initialValue: flashCard().answer,
+            initialText: flashCard().answer,
             minLines: 2,
             maxLines: 3,
             onChange: answer,
           ),
           FTextField(
             label: 'Explaination'.text(),
-            initialValue: flashCard().explaination,
+            initialText: flashCard().explaination,
             onChange: explaination,
             minLines: 2,
             maxLines: 3,

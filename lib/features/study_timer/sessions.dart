@@ -95,3 +95,30 @@
 // //       ..duration = 0;
 // //   }
 // // }
+
+import 'package:flash_cards/main.dart';
+
+final daysRepository = DaysRepository();
+
+class DaysRepository {
+  final days = <Day>[
+    Day(
+      durationOfStudy: 77,
+    ),
+    Day(
+      durationOfStudy: 171,
+    ),
+    Day(
+      durationOfStudy: 672,
+    ),
+    Day(
+      durationOfStudy: 273,
+    ),
+    Day(
+      durationOfStudy: 169,
+    ),
+  ];
+  Iterable<Day> getAll() => days;
+  Iterable<Day> get lastSevenDays => days.take(7);
+  void put(Day day) => days.add(day);
+}

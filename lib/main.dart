@@ -20,7 +20,7 @@ export 'package:flash_cards/_archive/questions/questions_page.dart';
 export 'package:flash_cards/domain/models/quiz.dart';
 export 'package:flash_cards/_archive/quizzes/quizzes_bloc.dart';
 export 'package:flash_cards/_archive/quizzes/quizzes_page.dart';
-export 'package:flash_cards/features/settings/settings.dart';
+export 'package:flash_cards/domain/repositories/settings_repository.dart';
 export 'package:flash_cards/features/settings/settings_page.dart';
 export 'package:flash_cards/features/stats/stats_page.dart';
 export 'package:flash_cards/features/study_timer/sessions.dart';
@@ -43,8 +43,8 @@ void main() async {
 }
 
 mixin AppBloc {
-  bool get dark => themeMode == ThemeMode.dark;
-  ThemeMode get themeMode => settingsRepository.state.themeMode;
+  bool get dark => settingsRepository.dark;
+  ThemeMode get themeMode => settingsRepository.themeMode;
 }
 
 class App extends UI with AppBloc {

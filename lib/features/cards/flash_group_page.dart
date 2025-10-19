@@ -29,7 +29,7 @@ class FlashGroupPage extends UI {
   @override
   Widget build(BuildContext context) {
     return FScaffold(
-      content: 'content'.text(),
+      child: 'content'.text(),
     );
   }
 }

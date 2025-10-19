@@ -2,7 +2,11 @@ import 'package:forui/forui.dart';
 
 import '../../main.dart';
 
-class StatsPage extends UI {
+mixin StatsBloc on UI {
+  Iterable<Day> get lastSevenDays => daysRepository.lastSevenDays;
+}
+
+class StatsPage extends UI with StatsBloc {
   const StatsPage({super.key});
 
   @override
@@ -11,25 +15,25 @@ class StatsPage extends UI {
       header: FHeader(
         title: 'Stats'.text(),
       ),
-      content: Column(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          if (lastSevenDays.isEmpty) Text('No data.'),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: lastSevenDays
-                .map(
-                  (e) => Column(
-                    children: [
-                      Container(
-                        // color: settingsBloc.materialColor,
-                        height: e.durationOfStudy.toDouble(),
-                        width: 30,
-                        child: '${e.durationOfStudy} '.text().pad(),
-                      ).pad()
-                    ],
-                  ),
-                )
-                .toList(),
+            children: lastSevenDays.map(
+              (day) {
+                return Column(
+                  children: [
+                    Container(
+                      height: day.durationOfStudy.toDouble(),
+                      width: 30,
+                      child: '${day.durationOfStudy} '.text().pad(),
+                    ).pad()
+                  ],
+                );
+              },
+            ).toList(),
           ).pad()
         ],
       ),
@@ -37,33 +41,13 @@ class StatsPage extends UI {
   }
 }
 
-final lastSevenDays = <Day>[
-  Day(
-    durationOfStudy: 77,
-  ),
-  Day(
-    durationOfStudy: 171,
-  ),
-  Day(
-    durationOfStudy: 672,
-  ),
-  Day(
-    durationOfStudy: 273,
-  ),
-  Day(
-    durationOfStudy: 169,
-  ),
-  // Day(
-  //   durationOfStudy: 337,
-  // ),
-  // Day(
-  //   durationOfStudy: 190,
-  // ),
-];
-
 class Day {
   int durationOfStudy = 0;
   Day({
     this.durationOfStudy = 0,
   });
+  @override
+  String toString() {
+    return 'Day(durationOfStudy: $durationOfStudy)';
+  }
 }

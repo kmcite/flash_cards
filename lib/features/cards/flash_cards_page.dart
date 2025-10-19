@@ -78,24 +78,24 @@ class FlashCardsPage extends UI with FlashCardsBloc {
     return FScaffold(
       header: FHeader.nested(
         title: flashGroup.name.text(),
-        prefixActions: [
+        prefixes: [
           FButton.icon(
             onPress: () {
               navigator.back();
             },
-            child: FIcon(FAssets.icons.arrowLeft),
+            child: Icon(FIcons.arrowLeft),
           ),
         ],
-        suffixActions: [
+        suffixes: [
           FButton.icon(
             onPress: () {
               // editFlashGroupName(id);
             },
-            child: FIcon(FAssets.icons.penTool),
+            child: Icon(FIcons.penTool),
           ),
         ],
       ),
-      content: ListView.builder(
+      child: ListView.builder(
         itemCount: cards.length,
         itemBuilder: (context, index) {
           final card = cards.elementAt(index);

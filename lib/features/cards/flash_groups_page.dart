@@ -47,30 +47,30 @@ class FlashGroupsPage extends UI with FlashGroupsBloc {
     return FScaffold(
       header: FHeader(
         title: 'flash groups'.text(),
-        actions: [
+        suffixes: [
           FButton.icon(
             onPress: openCreateNewFlashCardDialog,
-            child: FIcon(FAssets.icons.file),
+            child: Icon(FIcons.file),
           ),
           FButton.icon(
             onPress: openCreateNewFlashGroupDialog,
-            child: FIcon(FAssets.icons.folder),
+            child: Icon(FIcons.folder),
           ),
         ],
       ),
-      content: FTileGroup.builder(
+      child: FTileGroup.builder(
         label: 'Group of Flashes'.text(),
         description: 'list of flash groups'.text(),
-        divider: FTileDivider.full,
+        divider: FItemDivider.full,
         count: groups.length,
         tileBuilder: (context, index) {
           final flashGroup = groups[index];
           return FTile(
             title: flashGroup.name.text(),
             subtitle: flashGroup.flashCards.length.text(),
-            suffixIcon: FButton.icon(
+            suffix: FButton.icon(
               onPress: () => details(flashGroup),
-              child: FIcon(FAssets.icons.doorOpen),
+              child: Icon(FIcons.doorOpen),
             ),
           );
         },

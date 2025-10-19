@@ -36,7 +36,7 @@ class NewFlashGroupDialog extends UI {
       body: Column(
         children: [
           FTextField(
-            initialValue: newFlashGroupBloc.flashGroup().name,
+            initialText: newFlashGroupBloc.flashGroup().name,
             minLines: 2,
             maxLines: 3,
             onChange: newFlashGroupBloc.name,
@@ -58,11 +58,11 @@ class NewFlashGroupDialog extends UI {
       ),
       actions: [
         FButton.icon(
-          child: FIcon(FAssets.icons.saveOff),
+          child: Icon(FIcons.saveOff),
           onPress: newFlashGroupBloc.cancel,
         ),
         FButton.icon(
-          child: FIcon(FAssets.icons.save),
+          child: Icon(FIcons.save),
           onPress: newFlashGroupBloc.success,
         ),
       ],

@@ -19,7 +19,7 @@ class StudyTimerPage extends UI with TimerBloc {
       header: FHeader(
         title: 'Timer'.text(),
       ),
-      content: Column(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
@@ -32,19 +32,19 @@ class StudyTimerPage extends UI with TimerBloc {
             children: [
               if (!isRunning)
                 FButton.icon(
-                  child: FIcon(FAssets.icons.play),
-                  style: FButtonStyle.primary,
+                  child: Icon(FIcons.play),
+                  style: FButtonStyle.primary(),
                   onPress: start,
                 ).pad()
               else ...[
                 FButton.icon(
-                  child: FIcon(FAssets.icons.pause),
-                  style: FButtonStyle.outline,
+                  child: Icon(FIcons.pause),
+                  style: FButtonStyle.outline(),
                   onPress: pause,
                 ).pad(),
                 FButton.icon(
-                  style: FButtonStyle.destructive,
-                  child: FIcon(FAssets.icons.refreshCw),
+                  style: FButtonStyle.destructive(),
+                  child: Icon(FIcons.refreshCw),
                   onPress: reset,
                 ).pad(),
               ]
@@ -92,6 +92,7 @@ mixin class TimerBloc {
 
   void reset() {
     stop(); // Ensure timer is stopped before resetting
+    daysRepository.put(Day(durationOfStudy: ticksRM.state));
     ticksRM.state = 0;
   }
 

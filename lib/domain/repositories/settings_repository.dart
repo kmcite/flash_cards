@@ -19,4 +19,19 @@ class Settings {
   }
 }
 
-final settingsRepository = RM.inject(() => Settings());
+final settingsRepository = SettingsRepository();
+
+class SettingsRepository {
+  final themeModeRM = RM.inject(() => ThemeMode.system);
+
+  bool get dark => themeMode == ThemeMode.dark;
+  ThemeMode get themeMode => themeModeRM.state;
+
+  void put(ThemeMode themeMode) {
+    this.themeModeRM.state = themeMode;
+  }
+
+  void toggleThemeMode() {
+    themeModeRM.state = ThemeMode.values[(themeMode.index + 1) % 3];
+  }
+}
